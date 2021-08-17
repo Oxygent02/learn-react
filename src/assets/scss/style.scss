@@ -118,6 +118,10 @@ section {
     }
   }
 
+  &.no-border {
+    border: none;
+  }
+
   .img-wrapper {
     height: 100%;
     margin-bottom: 0;
