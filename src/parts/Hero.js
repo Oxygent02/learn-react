@@ -49,12 +49,12 @@ export default function Hero(props) {
                 src={IconTraveler}
                 alt={`${props.data.travelers} Travelers`}
               />
-              <h5 className="mt-3">
+              <h6 className="mt-3">
                 {formatNumber(props.data.travelers)}{" "}
                 <span className="text-gray-500 font-weight-light">
                   travelers
                 </span>
-              </h5>
+              </h6>
             </div>
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img
@@ -63,12 +63,12 @@ export default function Hero(props) {
                 src={IconTreasure}
                 alt={`${props.data.treasures} Treasures`}
               />
-              <h5 className="mt-3">
+              <h6 className="mt-3">
                 {formatNumber(props.data.treasures)}{" "}
                 <span className="text-gray-500 font-weight-light">
                   treasure
                 </span>
-              </h5>
+              </h6>
             </div>
             <div className="col-auto">
               <img
@@ -77,10 +77,10 @@ export default function Hero(props) {
                 src={IconCities}
                 alt={`${props.data.cities} Cities`}
               />
-              <h5 className="mt-3">
+              <h6 className="mt-3">
                 {formatNumber(props.data.cities)}{" "}
                 <span className="text-gray-500 font-weight-light">cities</span>
-              </h5>
+              </h6>
             </div>
           </div>
         </div>
