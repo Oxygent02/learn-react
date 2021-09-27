@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import InputDate from "elements/Form/inputDate";
+import { InputDate } from "elements/Form";
 
 export default class Example extends Component {
   state = {

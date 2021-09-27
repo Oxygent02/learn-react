@@ -1,19 +1,25 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import InputNumber from "./index";
+import { screen } from "@testing-library/dom";
+import InputDate from "./index";
+import Date from "./index";
 
 class TestInput extends React.Component {
   state = {
-    value: "",
+    value: {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
   };
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ value: e.target.value });
   };
 
   render() {
     return (
-      <InputNumber
+      <InputDate
         max={30}
         onChange={this.handleChange}
         name="value"
@@ -25,20 +31,14 @@ class TestInput extends React.Component {
 
 const setup = () => {
   const { container } = render(<TestInput />);
-  const input = container.querySelector(`input.form-control[name='value']`);
+  const wrapper = container.querySelector(`.input-date`);
+  const input = container.querySelector(`input.form-control`);
 
-  return { input };
+  return { container, wrapper, input };
 };
 
-test("Should able to change value", () => {
-  const { input } = setup();
+test("Should has wrapper with class name .form-control", () => {
+  const { wrapper } = setup();
 
-  fireEvent.change(input, { target: { value: 23 } });
-  expect(input.value).toBe("23");
-});
-
-test("Should not able to change when reach max value", () => {
-  const { input } = setup();
-  fireEvent.change(input, { target: { value: 33 } });
-  expect(input.value).toBe("30");
+  expect(wrapper).toBeInTheDocument();
 });
